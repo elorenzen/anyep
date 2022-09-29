@@ -25,6 +25,14 @@
   },
   "description": "## Build Setup",
   "main": "nuxt.config.js",
-  "author": "",
-  "license": "ISC"
+  "author": "Eric Lorenzen",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elorenzen/anyep.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elorenzen/anyep/issues"
+  },
+  "homepage": "https://github.com/elorenzen/anyep#readme"
 }
