@@ -37,6 +37,6 @@
   "homepage": "https://github.com/elorenzen/anyep#readme",
   "engines": {
     "node": "16.x",
-    "npm": "7."
+    "npm": "7.x"
   }
 }
