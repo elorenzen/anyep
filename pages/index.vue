@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import { API_KEY } from '~/plugins/key.js'
 const axios = require('axios')
 export default {
   name: 'IndexPage',
@@ -85,20 +84,20 @@ export default {
     querySelections (v) {
       this.loading = true
 
-      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&page=1&query=${v}`).then(response => {
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.APIKEY}&page=1&query=${v}`).then(response => {
           this.items = response.data.results
           this.loading = false
       })
     },
     async returnRandom() {
-      await axios.get(`https://api.themoviedb.org/3/tv/${this.select.id}?api_key=${API_KEY}&language=en-US`).then(response => {
+      await axios.get(`https://api.themoviedb.org/3/tv/${this.select.id}?api_key=${process.env.APIKEY}&language=en-US`).then(response => {
         this.selectedSeriesDetails = response.data
       })
       const numSeasons = this.selectedSeriesDetails.number_of_seasons
       const randomSeason = Math.floor(Math.random() * (numSeasons + 1) + 1)
 
       await axios
-        .get(`https://api.themoviedb.org/3/tv/${this.select.id}/season/${randomSeason}?api_key=${API_KEY}&language=en-US`)
+        .get(`https://api.themoviedb.org/3/tv/${this.select.id}/season/${randomSeason}?api_key=${process.env.APIKEY}&language=en-US`)
         .then(response => {
           this.selectedSeriesSeasonEpisodeNum = response.data.episodes.length
         })
@@ -106,7 +105,7 @@ export default {
       const randomEpisode = Math.floor(Math.random() * (this.selectedSeriesSeasonEpisodeNum + 1) + 1)
 
       await axios
-        .get(`https://api.themoviedb.org/3/tv/${this.select.id}/season/${randomSeason}/episode/${randomEpisode}?api_key=${API_KEY}&language=en-US`)
+        .get(`https://api.themoviedb.org/3/tv/${this.select.id}/season/${randomSeason}/episode/${randomEpisode}?api_key=${process.env.APIKEY}&language=en-US`)
         .then(response => {
           this.finalResult = response.data
           console.log('FINAL RESULT: ', this.finalResult)
