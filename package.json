@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/elorenzen/anyep/issues"
   },
-  "homepage": "https://github.com/elorenzen/anyep#readme"
+  "homepage": "https://github.com/elorenzen/anyep#readme",
+  "engines": {
+    "node": "16.17.1"
+  }
 }
